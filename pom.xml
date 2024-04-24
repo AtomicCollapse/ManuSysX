@@ -9,6 +9,9 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>manux-dependencies</module>
+		<module>manux-framework</module>
+		<module>manux-spring-boot-starter-web</module>
+		<module>manux-spring-boot-starter-mybatis</module>
 	</modules>
 
 	<name>${project.artifactId}</name>
@@ -76,10 +79,6 @@
 							</path>
 						</annotationProcessorPaths>
 					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>flatten-maven-plugin</artifactId>
 				</plugin>
 			</plugins>
 		</pluginManagement>
