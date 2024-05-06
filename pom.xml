@@ -11,7 +11,8 @@
 		<module>manux-dependencies</module>
 		<module>manux-framework</module>
 		<module>manux-gateway</module>
-	</modules>
+        <module>manux-pms</module>
+    </modules>
 
 	<name>${project.artifactId}</name>
 	<description>ManuSysX-BCK</description>
