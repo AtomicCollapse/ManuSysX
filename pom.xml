@@ -12,6 +12,7 @@
 		<module>manux-framework</module>
 		<module>manux-gateway</module>
 		<module>manux-module-infra</module>
+		<module>manux-pms</module>
 	</modules>
 
 	<name>${project.artifactId}</name>
