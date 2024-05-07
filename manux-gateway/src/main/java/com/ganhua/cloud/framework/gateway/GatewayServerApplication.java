@@ -1,4 +1,4 @@
-package com.ganhua.cloud.gateway;
+package com.ganhua.cloud.framework.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -11,6 +11,7 @@
 		<module>manux-dependencies</module>
 		<module>manux-framework</module>
 		<module>manux-gateway</module>
+		<module>manux-module-infra</module>
 	</modules>
 
 	<name>${project.artifactId}</name>
