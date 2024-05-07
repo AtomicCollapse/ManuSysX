@@ -13,6 +13,7 @@
 		<module>manux-gateway</module>
 		<module>manux-module-infra</module>
 		<module>manux-pms</module>
+		<module>manux-module-system</module>
 	</modules>
 
 	<name>${project.artifactId}</name>
@@ -127,6 +128,4 @@
 			<url>https://maven.aliyun.com/repository/public</url>
 		</repository>
 	</repositories>
-
-
 </project>

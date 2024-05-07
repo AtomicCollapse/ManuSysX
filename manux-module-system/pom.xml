@@ -7,21 +7,21 @@
         <artifactId>manux</artifactId>
         <version>${revision}</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
-
     <modules>
-        <module>manux-module-infra-api</module>
-        <module>manux-module-infra-biz</module>
+        <module>manux-module-system-api</module>
+        <module>manux-module-system-biz</module>
     </modules>
-
-    <artifactId>manux-module-infra</artifactId>
+    <artifactId>manux-module-system</artifactId>
     <packaging>pom</packaging>
+
 
     <name>${project.artifactId}</name>
     <description>
-        infra 模块，主要提供两块能力：
-        1. 我们放基础设施的运维与管理，支撑上层的通用与核心业务。 例如说：定时任务的管理、服务器的信息等等
-        2. 研发工具，提升研发效率与质量。 例如说：代码生成器、接口文档等等
+        system 模块下，我们放通用业务，支撑上层的核心业务。
+        例如说：用户、部门、权限、数据字典等等
     </description>
+
 
 </project>
