@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.ganhua.cloud</groupId>
         <artifactId>manux-module-infra</artifactId>
-        <version>0.0.1-jdk8-snapshot</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
