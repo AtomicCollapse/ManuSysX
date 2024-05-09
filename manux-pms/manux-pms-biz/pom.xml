@@ -17,6 +17,17 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>com.ganhua.cloud</groupId>
+            <artifactId>manux-pms-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ganhua.cloud</groupId>
+            <artifactId>manux-common</artifactId>
+        </dependency>
+
         <!-- Spring Cloud 基础 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

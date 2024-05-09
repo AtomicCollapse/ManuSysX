@@ -16,8 +16,12 @@
     <description>定义基础 pojo 类、枚举、工具类等等</description>
 
 
-    <dependencies>
-        <!-- Spring 核心 -->
+    <dependencies><!-- Spring 核心 -->
+        <dependency>
+            <groupId>com.ganhua.cloud</groupId>
+            <artifactId>manux-spring-boot-starter-mybatis</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
