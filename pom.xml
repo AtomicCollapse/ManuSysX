@@ -12,7 +12,8 @@
 		<module>manux-gateway</module>
 		<module>manux-infra</module>
 		<module>manux-framework</module>
-	</modules>
+        <module>manux-module-pms</module>
+    </modules>
 
 	<name>${project.artifactId}</name>
 	<description>ManuSysX-BCK</description>
