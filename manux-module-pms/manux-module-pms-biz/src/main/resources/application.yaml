@@ -1,0 +1,30 @@
+server:
+  port: 58001
+  servlet:
+    context-path: /api
+spring:
+  jackson:
+    time-zone: GMT+8
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:postgresql://127.0.0.1:5432/manux?currentSchema=pms
+      username: postgres
+      password: 12345678
+      driver-class-name: org.postgresql.Driver
+      # 连接池-初始大小
+      initial-size: 10
+      # 连接池-最大连接数
+      max-active: 100
+      # 最大等待时间
+      max-wait: 60000
+      # 连接池-最小空闲数
+      min-idle: 10
+      #检测空闲连接
+      test-while-idle: true
+      #最小空闲时间
+      min-evictable-idel-time-millis: 300000
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志

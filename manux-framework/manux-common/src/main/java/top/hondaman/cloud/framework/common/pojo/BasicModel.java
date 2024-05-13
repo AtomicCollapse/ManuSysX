@@ -5,10 +5,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
-public abstract class BasicModel{
+public abstract class BasicModel implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     /**
      *  唯一键

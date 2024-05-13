@@ -23,7 +23,7 @@
         <hutool.version>5.8.25</hutool.version>
         <!-- DB 相关 -->
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
-        <pagehelper.version>1.2.11</pagehelper.version>
+        <druid.version>1.2.21</druid.version>
     </properties>
 
     <dependencyManagement>
@@ -69,6 +69,11 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

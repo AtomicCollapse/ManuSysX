@@ -3,20 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>manux</artifactId>
+        <artifactId>manux-module-pms</artifactId>
         <groupId>top.hondaman.cloud</groupId>
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>manux-module-pms</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>manux-module-pms-api</artifactId>
+    <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-    <description>PMS后台 系统核心权限管理 基于RBAC模型实现</description>
-    <modules>
-        <module>manux-module-pms-api</module>
-        <module>manux-module-pms-biz</module>
-    </modules>
+    <description>
+        pms 模块 的公共API
+    </description>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>top.hondaman.cloud</groupId>
+            <artifactId>manux-common</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
 </project>

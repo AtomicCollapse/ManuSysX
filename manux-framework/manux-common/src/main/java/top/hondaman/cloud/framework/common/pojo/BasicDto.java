@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public abstract class BasicDto{
+public abstract class BasicDto implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     /**
      *  唯一键

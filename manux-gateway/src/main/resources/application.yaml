@@ -1,12 +1,14 @@
-#spring:
-#  main:
-#    allow-circular-references: true # 允许循环依赖，因为项目是三层架构，无法避免这个情况。
-
+spring:
   cloud:
     # Spring Cloud Gateway 配置项，对应 GatewayProperties 类
     gateway:
       # 路由配置项，对应 RouteDefinition 数组
       routes:
+        - #PMS
+          id: pms
+          uri: http://127.0.0.1:58001
+          predicates:
+            - Path=/api/pms/**
         ## 测试用
         - id: ganhua-local
           uri: http://127.0.0.1:8089
