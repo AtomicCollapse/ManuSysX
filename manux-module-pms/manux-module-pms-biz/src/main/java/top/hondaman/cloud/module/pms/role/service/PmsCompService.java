@@ -1,5 +1,6 @@
 package top.hondaman.cloud.module.pms.role.service;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -20,14 +21,19 @@ public class PmsCompService {
     private PmsCompMapper pmsCompMapper;
 
     public PageResult<PmsCompDto> getListPage(PmsCompParam param){
-        PmsComp pmsComp = BeanUtils.toBean(param,PmsComp.class);
-
         QueryWrapper queryWrapper = new QueryWrapper<PmsComp>();
+        queryWrapper.like(StrUtil.isNotEmpty(param.getName()),"name",param.getName());
 
         Page<PmsComp> page = PageHelper.startPage(param.getPage(),param.getLimit(),param.getSortOrderContent())
                 .doSelectPage(() -> pmsCompMapper.selectList(queryWrapper));
 
         List<PmsCompDto> dtos = BeanUtils.toBean(page.getResult(),PmsCompDto.class);
         return new PageResult(dtos,page.getTotal());
+    }
+
+    public String insert(PmsCompParam param){
+        PmsComp pmsComp = BeanUtils.toBean(param,PmsComp.class);
+
+        return null;
     }
 }

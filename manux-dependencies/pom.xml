@@ -28,6 +28,17 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--manux module-->
+            <dependency>
+                <groupId>top.hondaman.cloud</groupId>
+                <artifactId>manux-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.hondaman.cloud</groupId>
+                <artifactId>manux-spring-boot-starter-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!-- 统一依赖管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

@@ -8,6 +8,7 @@ import top.hondaman.cloud.module.pms.role.dto.PmsCompParam;
 import top.hondaman.cloud.module.pms.role.service.PmsCompService;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import static top.hondaman.cloud.framework.common.pojo.CommonResult.success;
 
@@ -21,5 +22,10 @@ public class PmsCompController {
     public CommonResult<PageResult<PmsCompDto>> getListPage(@RequestBody PmsCompParam param){
         PageResult<PmsCompDto> pageResult = pmsCompService.getListPage(param);
         return success(pageResult);
+    }
+
+    @PostMapping("insert")
+    public CommonResult<String> insert(@Valid @RequestBody PmsCompParam param){
+        return success(pmsCompService.insert(param));
     }
 }

@@ -3,23 +3,29 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>manux-module-pms</artifactId>
+        <artifactId>manux-framework</artifactId>
         <groupId>top.hondaman.cloud</groupId>
-        <version>${revision}</version>
+        <version>0.0.1-jdk8-snapshot</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>manux-module-pms-api</artifactId>
+    <artifactId>manux-spring-boot-starter-security</artifactId>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
     <description>
-        pms 模块 的公共API
+        1. security：用户的认证、权限的校验，实现「谁」可以做「什么事」
+        2. operatelog：操作日志，实现「谁」在「什么时间」对「什么」做了「什么事」
     </description>
 
     <dependencies>
         <dependency>
             <groupId>top.hondaman.cloud</groupId>
             <artifactId>manux-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
 </project>
