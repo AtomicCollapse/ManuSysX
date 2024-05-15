@@ -22,10 +22,6 @@
             <groupId>top.hondaman.cloud</groupId>
             <artifactId>manux-common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>top.hondaman.cloud</groupId>
-            <artifactId>manux-spring-boot-starter-security</artifactId>
-        </dependency>
 
         <!-- Spring Cloud 基础 -->
         <dependency>

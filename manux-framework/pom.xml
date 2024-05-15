@@ -12,7 +12,6 @@
 
     <modules>
         <module>manux-common</module>
-        <module>manux-spring-boot-starter-security</module>
     </modules>
 
 
