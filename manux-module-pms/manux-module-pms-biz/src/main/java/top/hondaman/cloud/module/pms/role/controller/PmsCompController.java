@@ -28,4 +28,16 @@ public class PmsCompController {
     public CommonResult<String> insert(@Valid @RequestBody PmsCompParam param){
         return success(pmsCompService.insert(param));
     }
+
+    @PutMapping("/update")
+    public CommonResult<Boolean> update(@Valid @RequestBody PmsCompParam param){
+        pmsCompService.update(param);
+        return success(true);
+    }
+
+    @PutMapping("/delete")
+    public CommonResult<Boolean> delete(@RequestParam("id") String id){
+        pmsCompService.delete(id);
+        return success(true);
+    }
 }

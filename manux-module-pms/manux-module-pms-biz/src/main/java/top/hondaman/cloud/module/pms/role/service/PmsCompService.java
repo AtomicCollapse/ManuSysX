@@ -36,4 +36,12 @@ public class PmsCompService {
 
         return null;
     }
+
+    public void update(PmsCompParam param){
+
+    }
+
+    public void delete(String id){
+        pmsCompMapper.deleteById(id);
+    }
 }
