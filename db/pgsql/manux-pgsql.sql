@@ -207,3 +207,39 @@ COMMENT ON COLUMN "pms"."t_pms_role_rel"."role_id" IS '角色ID';
 COMMENT ON COLUMN "pms"."t_pms_role_rel"."function_id" IS '功能ID';
 
 COMMENT ON TABLE "pms"."t_pms_role_rel" IS '权限关联表';
+
+
+DROP TABLE IF EXISTS t_infra_user_info;
+CREATE TABLE "pms"."t_infra_user_info" (
+  "id" varchar(36) COLLATE "pg_catalog"."default" NOT NULL DEFAULT gen_random_uuid(),
+  "insert_time" timestamp(6) NOT NULL,
+  "insert_user" varchar(40) COLLATE "pg_catalog"."default" NOT NULL,
+  "update_time" timestamp(6),
+  "update_user" varchar(40) COLLATE "pg_catalog"."default",
+  "user_name" varchar(40) COLLATE "pg_catalog"."default",
+  "password" varchar(30) COLLATE "pg_catalog"."default",
+  "email" varchar(40) COLLATE "pg_catalog"."default",
+  CONSTRAINT "t_infra_user_info_pkey" PRIMARY KEY ("id")
+)
+;
+
+ALTER TABLE "pms"."t_infra_user_info"
+  OWNER TO "postgres";
+
+COMMENT ON COLUMN "pms"."t_infra_user_info"."id" IS '主键';
+
+COMMENT ON COLUMN "pms"."t_infra_user_info"."insert_time" IS '插入时间';
+
+COMMENT ON COLUMN "pms"."t_infra_user_info"."insert_user" IS '插入人';
+
+COMMENT ON COLUMN "pms"."t_infra_user_info"."update_time" IS '更新时间';
+
+COMMENT ON COLUMN "pms"."t_infra_user_info"."update_user" IS '更新人';
+
+COMMENT ON COLUMN "pms"."t_infra_user_info"."user_name" IS '用户名称';
+
+COMMENT ON COLUMN "pms"."t_infra_user_info"."password" IS '密码';
+
+COMMENT ON COLUMN "pms"."t_infra_user_info"."email" IS '邮箱';
+
+COMMENT ON TABLE "pms"."t_infra_user_info" IS '用户信息表';
