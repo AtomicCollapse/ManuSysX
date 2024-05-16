@@ -2,13 +2,13 @@ package top.hondaman.cloud.framework.common.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Getter;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
 
-@Getter
+@Data
 public abstract class BasicModel implements Serializable {
     private static final long serialVersionUID = 1L;
 

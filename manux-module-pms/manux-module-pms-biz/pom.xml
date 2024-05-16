@@ -20,6 +20,10 @@
     <dependencies>
         <dependency>
             <groupId>top.hondaman.cloud</groupId>
+            <artifactId>manux-infra</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>top.hondaman.cloud</groupId>
             <artifactId>manux-common</artifactId>
         </dependency>
 

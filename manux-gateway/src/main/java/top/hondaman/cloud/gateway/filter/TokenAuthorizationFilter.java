@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 @Order(1)
 @Component
 public class TokenAuthorizationFilter implements GlobalFilter {
@@ -18,8 +20,9 @@ public class TokenAuthorizationFilter implements GlobalFilter {
         ServerHttpRequest request = exchange.getRequest();
         String auth = request.getHeaders().getFirst("Authorization");
         if(StrUtil.isNotBlank(auth) && auth.replace("Bearer ","").equals("admin")){
+            request = request.mutate().header("userId",UUID.randomUUID().toString()).build();
             //放行
-            return chain.filter(exchange);
+            return chain.filter(exchange.mutate().request(request).build());
         }
 
         //拦截

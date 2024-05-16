@@ -36,7 +36,7 @@
             </dependency>
             <dependency>
                 <groupId>top.hondaman.cloud</groupId>
-                <artifactId>manux-spring-boot-starter-security</artifactId>
+                <artifactId>manux-infra</artifactId>
                 <version>${revision}</version>
             </dependency>
             <!-- 统一依赖管理 -->

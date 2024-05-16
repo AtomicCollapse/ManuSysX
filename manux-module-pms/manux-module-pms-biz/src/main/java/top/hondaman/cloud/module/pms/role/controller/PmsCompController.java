@@ -19,7 +19,7 @@ public class PmsCompController {
     private PmsCompService pmsCompService;
 
     @GetMapping("pageList")
-    public CommonResult<PageResult<PmsCompDto>> getListPage(@RequestBody PmsCompParam param){
+    public CommonResult<PageResult<PmsCompDto>> getListPage(@RequestBody PmsCompParam param,@RequestHeader("userId") String userId){
         PageResult<PmsCompDto> pageResult = pmsCompService.getListPage(param);
         return success(pageResult);
     }
