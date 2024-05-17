@@ -28,6 +28,15 @@ public final class ServiceException extends RuntimeException {
     public ServiceException(){
 
     }
+    public ServiceException(ErrorCode errorCode){
+        this.code = errorCode.getCode();
+        this.message = errorCode.getMsg();
+    }
+
+    public ServiceException(ErrorCode errorCode,String message){
+        this.code = errorCode.getCode();
+        this.message = errorCode.getMsg()+"["+message+"]";
+    }
 
     public ServiceException(Integer code,String message){
         this.code = code;
