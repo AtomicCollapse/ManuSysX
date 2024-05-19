@@ -6,7 +6,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.stereotype.Service;
 import top.hondaman.cloud.framework.common.exception.ServiceException;
 import top.hondaman.cloud.framework.common.util.object.BeanUtils;
+import top.hondaman.cloud.framework.redis.oauth2.dto.OAuth2AccessTokenDto;
+import top.hondaman.cloud.framework.redis.oauth2.mapper.OAuth2AccessTokenRedisDAO;
+import top.hondaman.cloud.framework.redis.oauth2.service.OAuth2TokenService;
 import top.hondaman.cloud.infra.system.model.UserInfo;
+import top.hondaman.cloud.infra.system.model.UserInfoToken;
 import top.hondaman.cloud.module.pms.role.dto.PmsUserInfoParam;
 import top.hondaman.cloud.module.pms.role.mapper.PmsUserInfoMapper;
 
@@ -21,6 +25,8 @@ public class PmsUserInfoService {
 
     @Resource
     private PmsUserInfoMapper mapper;
+    @Resource
+    private OAuth2TokenService oAuth2TokenService;
 
     public String insert(PmsUserInfoParam param,String userId){
         String id = UUID.randomUUID().toString();
@@ -50,5 +56,30 @@ public class PmsUserInfoService {
         data.setUpdateUser(userId);
         data.setUpdateTime(new Date());
         mapper.updateById(data);
+    }
+
+    public String doLogin(PmsUserInfoParam param){
+        UserInfo userInfo = BeanUtils.toBean(param,UserInfo.class);
+        QueryWrapper<UserInfo> wrapper = new QueryWrapper();
+        wrapper.eq("user_name",userInfo.getUserName());
+
+        if(mapper.selectOne(wrapper) == null){
+            throw new ServiceException(400,"用户名不存在");
+        }
+
+        wrapper.eq("password",new Digester(DigestAlgorithm.MD5).digestHex(userInfo.getPassword()));
+        UserInfo loginUser = mapper.selectOne(wrapper);
+        if(loginUser == null){
+            throw new ServiceException(400,"密码错误");
+        }
+
+        OAuth2AccessTokenDto oAuth2AccessTokenDto = oAuth2TokenService.createAccessToken(userInfo.getId(),userInfo.getUserType());
+
+        return oAuth2AccessTokenDto.getAccessToken();
+    }
+
+    public OAuth2AccessTokenDto doLogout(UserInfoToken userInfoToken){
+
+        return oAuth2TokenService.removeAccessToken(userInfoToken.getAccessToken());
     }
 }

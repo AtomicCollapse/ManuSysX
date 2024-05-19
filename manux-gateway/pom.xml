@@ -16,6 +16,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>top.hondaman.cloud</groupId>
+            <artifactId>manux-spring-boot-starter-redis</artifactId>
+            <exclusions>
+                <exclusion>
+                    <!-- 排除掉springboot依赖使用项目的 -->
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>

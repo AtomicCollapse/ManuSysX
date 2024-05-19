@@ -16,4 +16,7 @@ public class PmsUserInfoParam extends BasicParam {
     @Size(max = 30,message = "密码最长为30位")
     @NotEmpty(message = "密码不能为空")
     private String password;
+
+    @NotEmpty(message = "用户类型不能为空")
+    private String userType;
 }

@@ -12,6 +12,7 @@
 
     <modules>
         <module>manux-common</module>
+        <module>manux-spring-boot-starter-redis</module>
     </modules>
 
 

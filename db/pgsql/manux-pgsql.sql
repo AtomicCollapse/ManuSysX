@@ -217,8 +217,9 @@ CREATE TABLE "pms"."t_infra_user_info" (
   "update_time" timestamp(6),
   "update_user" varchar(40) COLLATE "pg_catalog"."default",
   "user_name" varchar(40) COLLATE "pg_catalog"."default",
-  "password" varchar(30) COLLATE "pg_catalog"."default",
+  "password" varchar(32) COLLATE "pg_catalog"."default",
   "email" varchar(40) COLLATE "pg_catalog"."default",
+  "user_type" numeric(1,0),
   CONSTRAINT "t_infra_user_info_pkey" PRIMARY KEY ("id")
 )
 ;
@@ -241,5 +242,7 @@ COMMENT ON COLUMN "pms"."t_infra_user_info"."user_name" IS '用户名称';
 COMMENT ON COLUMN "pms"."t_infra_user_info"."password" IS '密码';
 
 COMMENT ON COLUMN "pms"."t_infra_user_info"."email" IS '邮箱';
+
+COMMENT ON COLUMN "pms"."t_infra_user_info"."user_type" IS '用户类型 0-管理员;1-会员';
 
 COMMENT ON TABLE "pms"."t_infra_user_info" IS '用户信息表';

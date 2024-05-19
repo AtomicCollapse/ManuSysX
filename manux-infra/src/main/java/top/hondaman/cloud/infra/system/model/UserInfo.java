@@ -11,6 +11,7 @@ public class UserInfo extends BasicModel {
     private String userName;
     private String password;
     private String email;
+    private Integer userType;
     @TableField(exist = false)
     private String tradeCode;
 }

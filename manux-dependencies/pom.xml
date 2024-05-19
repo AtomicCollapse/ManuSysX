@@ -24,6 +24,7 @@
         <!-- DB 相关 -->
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <druid.version>1.2.21</druid.version>
+        <redisson.version>3.18.0</redisson.version> <!-- Spring Boot 2.X 最多使用 3.18.0 版本，否则会报 Tuple NoClassDefFoundError -->
     </properties>
 
     <dependencyManagement>
@@ -37,6 +38,11 @@
             <dependency>
                 <groupId>top.hondaman.cloud</groupId>
                 <artifactId>manux-infra</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.hondaman.cloud</groupId>
+                <artifactId>manux-spring-boot-starter-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
             <!-- 统一依赖管理 -->
@@ -85,6 +91,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
