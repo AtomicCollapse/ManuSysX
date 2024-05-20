@@ -25,6 +25,8 @@
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <druid.version>1.2.21</druid.version>
         <redisson.version>3.18.0</redisson.version> <!-- Spring Boot 2.X 最多使用 3.18.0 版本，否则会报 Tuple NoClassDefFoundError -->
+        <tika-core.version>2.9.1</tika-core.version>
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
     </properties>
 
     <dependencyManagement>
@@ -37,7 +39,7 @@
             </dependency>
             <dependency>
                 <groupId>top.hondaman.cloud</groupId>
-                <artifactId>manux-infra</artifactId>
+                <artifactId>manux-infra-api</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
@@ -96,6 +98,17 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
+            </dependency>
+            <!-- 文件类型的识别 -->
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId>
+                <version>${tika-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId> <!-- 解决 ThreadLocal 父子线程的传值问题 -->
+                <version>${transmittable-thread-local.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

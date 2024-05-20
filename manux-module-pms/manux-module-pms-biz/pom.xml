@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>top.hondaman.cloud</groupId>
-            <artifactId>manux-infra</artifactId>
+            <artifactId>manux-infra-api</artifactId>
         </dependency>
         <dependency>
             <groupId>top.hondaman.cloud</groupId>

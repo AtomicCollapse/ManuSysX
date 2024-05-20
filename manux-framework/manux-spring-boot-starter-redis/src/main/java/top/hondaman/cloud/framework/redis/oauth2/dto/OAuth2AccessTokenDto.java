@@ -1,8 +1,7 @@
 package top.hondaman.cloud.framework.redis.oauth2.dto;
 
 import lombok.Data;
-import top.hondaman.cloud.infra.system.enums.UserTypeEnum;
-
+//import top.hondaman.cloud.infra.system.enums.UserTypeEnum;
 import java.time.LocalDateTime;
 
 
@@ -19,7 +18,7 @@ public class OAuth2AccessTokenDto {
     /**
      * 用户类型
      *
-     * 枚举 {@link UserTypeEnum}
+
      */
     private Integer userType;
     /**
