@@ -34,4 +34,9 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService{
         oAuth2AccessTokenRedisDAO.delete(accessToken);
         return accessTokenDto;
     }
+
+    @Override
+    public OAuth2AccessTokenDto getUserInfo(String accessToken){
+        return oAuth2AccessTokenRedisDAO.get(accessToken);
+    }
 }

@@ -21,13 +21,13 @@ public class PmsUserInfoController {
     private PmsUserInfoService service;
 
     @PostMapping("insert")
-    public CommonResult<String> insert(@Valid @RequestBody PmsUserInfoParam param, @RequestHeader String userId){
-        return success(service.insert(param,userId));
+    public CommonResult<String> insert(@Valid @RequestBody PmsUserInfoParam param, @RequestHeader String accessToken){
+        return success(service.insert(param,accessToken));
     }
 
     @PostMapping("update")
-    public CommonResult<Boolean> update(@Valid @RequestBody PmsUserInfoParam param,@RequestHeader String userId){
-        service.update(param,userId);
+    public CommonResult<Boolean> update(@Valid @RequestBody PmsUserInfoParam param,@RequestHeader String accessToken){
+        service.update(param,accessToken);
         return success(true);
     }
 
@@ -43,7 +43,7 @@ public class PmsUserInfoController {
     }
 
     @PostMapping("logout")
-    public CommonResult<OAuth2AccessTokenDto> logout(UserInfoToken userInfoToken){
-        return success(service.doLogout(userInfoToken));
+    public CommonResult<OAuth2AccessTokenDto> logout(@RequestHeader String accessToken){
+        return success(service.doLogout(accessToken));
     }
 }

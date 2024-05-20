@@ -24,4 +24,9 @@ public interface OAuth2TokenService {
      * @return 访问令牌的信息
      */
     OAuth2AccessTokenDto removeAccessToken(String accessToken);
+
+    /**
+     * 拿 accessToken 转换用户信息
+     */
+    OAuth2AccessTokenDto getUserInfo(String accessToken);
 }
