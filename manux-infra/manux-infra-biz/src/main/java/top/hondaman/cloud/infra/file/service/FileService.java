@@ -1,4 +1,4 @@
-package top.hondaman.cloud.infra.service.file;
+package top.hondaman.cloud.infra.file.service;
 
 
 public interface FileService {

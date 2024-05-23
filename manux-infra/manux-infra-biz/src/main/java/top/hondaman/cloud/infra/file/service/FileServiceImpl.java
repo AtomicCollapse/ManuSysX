@@ -1,7 +1,5 @@
-package top.hondaman.cloud.infra.service.file;
+package top.hondaman.cloud.infra.file.service;
 
-import cn.hutool.core.io.resource.ResourceUtil;
-import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
 import org.springframework.stereotype.Service;
 import top.hondaman.cloud.framework.common.util.file.FileTypeUtils;

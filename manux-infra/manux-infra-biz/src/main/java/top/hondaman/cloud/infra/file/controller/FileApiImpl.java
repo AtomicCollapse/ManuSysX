@@ -1,11 +1,10 @@
-package top.hondaman.cloud.infra.api.file;
+package top.hondaman.cloud.infra.file.controller;
 
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 import top.hondaman.cloud.framework.common.pojo.CommonResult;
-import top.hondaman.cloud.infra.api.file.controller.FileApi;
-import top.hondaman.cloud.infra.api.file.dto.FileUploadReqDto;
-import top.hondaman.cloud.infra.service.file.FileService;
+import top.hondaman.cloud.infra.file.dto.FileUploadParam;
+import top.hondaman.cloud.infra.file.service.FileService;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -19,7 +18,7 @@ public class FileApiImpl implements FileApi {
     private FileService fileService;
 
     @Override
-    public CommonResult<String> uploadFile(@Valid FileUploadReqDto fileUploadReqDto) {
-        return success(fileService.uploadFile(fileUploadReqDto.getName(),fileUploadReqDto.getPath(),fileUploadReqDto.getContent()));
+    public CommonResult<String> uploadFile(@Valid FileUploadParam fileUploadParam) {
+        return success(fileService.uploadFile(fileUploadParam.getName(), fileUploadParam.getPath(), fileUploadParam.getContent()));
     }
 }

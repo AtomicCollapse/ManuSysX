@@ -1,11 +1,11 @@
-package top.hondaman.cloud.infra.api.file.dto;
+package top.hondaman.cloud.infra.file.dto;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
-public class FileUploadReqDto {
+public class FileUploadParam {
     //源文件名称
     private String name;
     //文件路径

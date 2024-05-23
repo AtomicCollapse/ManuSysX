@@ -1,11 +1,11 @@
-package top.hondaman.cloud.infra.api.file.controller;
+package top.hondaman.cloud.infra.file.controller;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import top.hondaman.cloud.framework.common.pojo.CommonResult;
-import top.hondaman.cloud.infra.api.file.dto.FileUploadReqDto;
+import top.hondaman.cloud.infra.file.dto.FileUploadParam;
 import top.hondaman.cloud.infra.enums.ApiConstants;
 
 import javax.validation.Valid;
@@ -47,7 +47,7 @@ public interface FileApi {
     default String uploadFile(@RequestParam("name") String name,
                               @RequestParam("path") String path,
                               @RequestParam("content") byte[] content) {
-        FileUploadReqDto dto = new FileUploadReqDto();
+        FileUploadParam dto = new FileUploadParam();
         dto.setPath(path);
         dto.setName(name);
         dto.setContent(content);
@@ -55,6 +55,6 @@ public interface FileApi {
     }
 
     @PostMapping(PREFIX + "/upload")
-    CommonResult<String> uploadFile(@Valid @RequestBody FileUploadReqDto fileUploadReqDto);
+    CommonResult<String> uploadFile(@Valid @RequestBody FileUploadParam fileUploadParam);
 
 }
