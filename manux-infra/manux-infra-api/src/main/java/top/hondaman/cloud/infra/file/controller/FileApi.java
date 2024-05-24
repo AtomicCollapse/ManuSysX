@@ -47,11 +47,7 @@ public interface FileApi {
     default String uploadFile(@RequestParam("name") String name,
                               @RequestParam("path") String path,
                               @RequestParam("content") byte[] content) {
-        FileUploadParam dto = new FileUploadParam();
-        dto.setPath(path);
-        dto.setName(name);
-        dto.setContent(content);
-        return uploadFile(dto).getData();
+        return uploadFile(new FileUploadParam().setPath(path).setName(name).setContent(content)).getData();
     }
 
     @PostMapping(PREFIX + "/upload")

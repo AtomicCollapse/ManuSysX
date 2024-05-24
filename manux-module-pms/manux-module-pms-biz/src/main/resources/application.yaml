@@ -8,7 +8,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:postgresql://127.0.0.1:5432/manux?currentSchema=pms
+      url: jdbc:postgresql://127.0.0.1:5432/manux?currentSchema=infra
       username: postgres
       password: 12345678
       driver-class-name: org.postgresql.Driver

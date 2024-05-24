@@ -1,10 +1,12 @@
 package top.hondaman.cloud.infra.file.dto;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
+@Accessors(chain = true)
 public class FileUploadParam {
     //源文件名称
     private String name;
