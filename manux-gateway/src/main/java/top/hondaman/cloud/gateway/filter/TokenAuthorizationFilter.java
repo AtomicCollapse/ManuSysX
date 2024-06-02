@@ -19,6 +19,9 @@ import top.hondaman.cloud.framework.redis.oauth2.mapper.OAuth2AccessTokenRedisDA
 import javax.annotation.Resource;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static top.hondaman.cloud.framework.common.exception.enums.GlobalErrorCodeConstants.UNAUTHORIZED;
 
@@ -30,10 +33,13 @@ public class TokenAuthorizationFilter implements GlobalFilter {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        //需要放行的请求路径
+        List<String> passPath = new ArrayList<>(Arrays.asList("/api/pms/userInfo/login","/api/pms/userInfo/insert"));
+
         ServerHttpRequest request = exchange.getRequest();
         //获取请求目标url
         String path = request.getURI().getPath();
-        if(StrUtil.isNotEmpty(path) && path.equals("/api/pms/userInfo/login")){
+        if(StrUtil.isNotEmpty(path) && passPath.contains(path)){
             //特殊请求，直接放行
             return chain.filter(exchange.mutate().request(request).build());
         }else{

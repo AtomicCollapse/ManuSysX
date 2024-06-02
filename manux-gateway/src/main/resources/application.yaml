@@ -9,11 +9,11 @@ spring:
           uri: http://127.0.0.1:58001
           predicates:
             - Path=/api/pms/**
-        ## 测试用
-        - id: ganhua-local
-          uri: http://127.0.0.1:8089
+        - #infra
+          id: infra
+          uri: http://127.0.0.1:58000
           predicates:
-            - Path=/api/test/**
+            - Path=/api/infra/**
       x-forwarded:
         prefix-enabled: false # 避免 Swagger 重复带上额外的 /admin-api/system 前缀
 

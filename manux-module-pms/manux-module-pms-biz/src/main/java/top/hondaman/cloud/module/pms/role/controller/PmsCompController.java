@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import static top.hondaman.cloud.framework.common.pojo.CommonResult.success;
 
 @RestController
-@RequestMapping("/pms/comp")
+@RequestMapping("pms/comp")
 public class PmsCompController {
     @Resource
     private PmsCompService pmsCompService;

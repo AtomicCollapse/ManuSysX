@@ -3,7 +3,7 @@ package top.hondaman.cloud.gateway;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"top.hondaman.cloud"})
+@SpringBootApplication(scanBasePackages = {"top.hondaman.cloud.gateway","top.hondaman.cloud.framework"})
 public class GatewayServerApplication {
     public static void main(String[] args) {
         // 启动 Spring Boot 应用

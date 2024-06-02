@@ -28,11 +28,11 @@ public class PmsUserInfoService {
     @Resource
     private OAuth2TokenService oAuth2TokenService;
 
-    public String insert(PmsUserInfoParam param,String accessToken){
+    public String insert(PmsUserInfoParam param){
         String id = UUID.randomUUID().toString();
         UserInfo userInfo = BeanUtils.toBean(param,UserInfo.class);
         userInfo.setId(id);
-        userInfo.setInsertUser(oAuth2TokenService.getUserInfo(accessToken).getUserId());
+        userInfo.setInsertUser("system");
         userInfo.setInsertTime(new Date());
 
         QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();

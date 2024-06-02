@@ -1,6 +1,5 @@
 package top.hondaman.cloud.module.pms.role.controller;
 
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import top.hondaman.cloud.framework.common.pojo.CommonResult;
 import top.hondaman.cloud.framework.redis.oauth2.dto.OAuth2AccessTokenDto;
@@ -13,15 +12,14 @@ import javax.validation.Valid;
 import static top.hondaman.cloud.framework.common.pojo.CommonResult.success;
 
 @RestController
-@Validated
 @RequestMapping("/pms/userInfo")
 public class PmsUserInfoController {
     @Resource
     private PmsUserInfoService service;
 
     @PostMapping("insert")
-    public CommonResult<String> insert(@Valid @RequestBody PmsUserInfoParam param, @RequestHeader String accessToken){
-        return success(service.insert(param,accessToken));
+    public CommonResult<String> insert(@Valid @RequestBody PmsUserInfoParam param){
+        return success(service.insert(param));
     }
 
     @PostMapping("update")

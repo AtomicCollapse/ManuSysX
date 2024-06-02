@@ -7,4 +7,6 @@ import top.hondaman.cloud.framework.common.pojo.BasicModel;
 @Data
 @TableName("t_infra_import_config")
 public class ImportConfig extends BasicModel {
+    private String systemCode;
+    private String taskCode;
 }

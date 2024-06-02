@@ -26,7 +26,7 @@ public class FileServiceImpl implements FileService{
         // 创建客户端
         LocalFileClientConfig config = new LocalFileClientConfig();
         config.setDomain("http://127.0.0.1:48080");
-        config.setBasePath("D:/img-local-upload");
+        config.setBasePath("D:/fileUpload");
         LocalFileClient client = new LocalFileClient(0L, config);
         client.init();
         // 上传文件
