@@ -19,7 +19,7 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService{
         accessTokenDto.setAccessToken(UUID.randomUUID().toString());
         accessTokenDto.setUserId(userId);
         accessTokenDto.setUserType(userType);
-        accessTokenDto.setExpiresTime(LocalDateTime.now().plusSeconds(300));
+        accessTokenDto.setExpiresTime(LocalDateTime.now().plusHours(12));
 
         oAuth2AccessTokenRedisDAO.set(accessTokenDto);
         return accessTokenDto;

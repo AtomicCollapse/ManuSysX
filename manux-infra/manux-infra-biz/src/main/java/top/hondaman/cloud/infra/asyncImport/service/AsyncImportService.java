@@ -1,6 +1,7 @@
 package top.hondaman.cloud.infra.asyncImport.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Service;
 import top.hondaman.cloud.framework.common.exception.ServiceException;
 import top.hondaman.cloud.framework.common.pojo.CommonResult;
@@ -11,6 +12,7 @@ import top.hondaman.cloud.infra.asyncImport.mapper.ImportTaskMapper;
 import top.hondaman.cloud.infra.asyncImport.model.ImportConfig;
 import top.hondaman.cloud.infra.asyncImport.model.ImportTask;
 import top.hondaman.cloud.infra.file.controller.FileApi;
+import top.hondaman.cloud.infra.mq.enums.QueueConstants;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -25,9 +27,11 @@ public class AsyncImportService {
     private ImportConfigMapper importConfigMapper;
     @Resource
     private FileApi fileApi;
+    @Resource
+    private AmqpTemplate amqpTemplate;
 
 
-    public String insertTask(ImportTaskParam param,String userId) throws IOException {
+    public String insertTask(ImportTaskParam param) throws IOException {
         /**
          * 校验导入任务是否配置
          */
@@ -42,7 +46,7 @@ public class AsyncImportService {
         /**
          * 文件上传
          */
-        fileApi.uploadFile(param.getFile().getBytes());
+        String filePath = fileApi.uploadFile(param.getFile().getBytes());
 
 
         /**
@@ -51,8 +55,15 @@ public class AsyncImportService {
         ImportTask importTask = BeanUtils.toBean(param,ImportTask.class);
         importTask.setId(UUID.randomUUID().toString());
         importTask.setInsertTime(new Date());
-        importTask.setInsertUser(userId);
+        importTask.setInsertUser("system");
+        importTask.setOriginFilePath(filePath);
         importTaskMapper.insert(importTask);
+
+
+        /**
+         * 向导入任务队列插入任务
+         */
+        amqpTemplate.convertAndSend(QueueConstants.IMPORT,importTask);
 
         return importTask.getId();
     }

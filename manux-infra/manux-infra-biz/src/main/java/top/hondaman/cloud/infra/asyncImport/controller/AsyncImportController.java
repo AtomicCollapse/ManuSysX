@@ -22,13 +22,15 @@ public class AsyncImportController implements AsyncImportApi{
 
     /**
      * 插入一条导入任务，校验导入配置是否存在
+     * 用form-data传值，接收附件
      * @param param
-     * @param userId
      * @return
      */
     @Override
     @PostMapping("/insertTask")
-    public CommonResult insertTask(@Valid ImportTaskParam param,@RequestHeader("userId") String userId) throws IOException {
-        return CommonResult.success(asyncImportService.insertTask(param,userId));
+    public CommonResult insertTask(@Valid ImportTaskParam param) throws IOException {
+        return CommonResult.success(asyncImportService.insertTask(param));
     }
+
+
 }

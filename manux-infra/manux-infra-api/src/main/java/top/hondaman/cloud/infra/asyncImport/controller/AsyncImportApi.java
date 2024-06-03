@@ -19,5 +19,5 @@ public interface AsyncImportApi {
      * @param param
      * @return
      */
-    CommonResult insertTask(ImportTaskParam param,String userId) throws IOException;
+    CommonResult insertTask(ImportTaskParam param) throws IOException;
 }

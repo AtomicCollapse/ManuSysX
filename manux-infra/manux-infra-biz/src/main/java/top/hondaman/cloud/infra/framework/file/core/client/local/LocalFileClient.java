@@ -30,8 +30,10 @@ public class LocalFileClient extends AbstractFileClient<LocalFileClientConfig> {
         String filePath = getFilePath(path);
         FileUtil.writeBytes(content, filePath);
         // 拼接返回路径
-        return super.formatFileUrl(config.getDomain(), path);
+//        return super.formatFileUrl(config.getDomain(), path);
+        return path;
     }
+
 
     @Override
     public void delete(String path) {

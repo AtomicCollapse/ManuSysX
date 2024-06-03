@@ -31,8 +31,6 @@ public class FileServiceImpl implements FileService{
         client.init();
         // 上传文件
         String fullPath = client.upload(content, path, type);
-        System.out.println("访问地址：" + fullPath);
-        //client.delete(path);
         return fullPath;
 
         //TODO 保存到数据库

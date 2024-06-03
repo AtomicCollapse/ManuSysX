@@ -17,6 +17,5 @@ public class PmsUserInfoParam extends BasicParam {
     @NotEmpty(message = "密码不能为空")
     private String password;
 
-    @NotEmpty(message = "用户类型不能为空")
     private String userType;
 }
