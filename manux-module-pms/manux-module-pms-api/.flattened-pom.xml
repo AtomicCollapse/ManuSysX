@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>top.hondaman.cloud</groupId>
+    <artifactId>manux-module-pms</artifactId>
+    <version>0.0.1-jdk8-snapshot</version>
+  </parent>
+  <groupId>top.hondaman.cloud</groupId>
+  <artifactId>manux-module-pms-api</artifactId>
+  <version>0.0.1-jdk8-snapshot</version>
+  <name>${project.artifactId}</name>
+  <description>pms 模块 的公共API</description>
+  <dependencies>
+    <dependency>
+      <groupId>top.hondaman.cloud</groupId>
+      <artifactId>manux-common</artifactId>
+    </dependency>
+  </dependencies>
+</project>

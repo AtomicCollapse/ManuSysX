@@ -17,6 +17,4 @@
         <module>manux-module-pms-api</module>
         <module>manux-module-pms-biz</module>
     </modules>
-
-
 </project>
