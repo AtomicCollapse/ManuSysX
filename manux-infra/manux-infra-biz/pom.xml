@@ -80,6 +80,10 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <!-- 设置构建的 jar 包名 -->
