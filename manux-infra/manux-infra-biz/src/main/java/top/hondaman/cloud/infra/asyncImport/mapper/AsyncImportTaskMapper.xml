@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.hondaman.cloud.infra.asyncImport.mapper.AsyncImportTaskMapper">
+
+    <select id="getLastTask" resultType="top.hondaman.cloud.infra.asyncImport.service.entity.AsyncImportTaskDO">
+        select
+            *
+        from t_infra_import_task t
+        <where>
+            t.system_code = #{query.systemCode}
+            and t.task_code = #{query.taskCode}
+        </where>
+        order by insert_time desc
+        limit 1
+    </select>
+</mapper>

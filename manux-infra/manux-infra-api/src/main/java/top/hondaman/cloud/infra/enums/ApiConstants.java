@@ -4,8 +4,6 @@ import top.hondaman.cloud.framework.common.enums.RpcConstants;
 
 /**
  * API 相关的枚举
- *
- * @author 芋道源码
  */
 public class ApiConstants {
 

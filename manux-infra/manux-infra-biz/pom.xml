@@ -103,5 +103,14 @@
                 </executions>
             </plugin>
         </plugins>
+        <!-- 配置mapper.xml文件路径 -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/mapper/*Mapper.xml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 </project>

@@ -1,6 +1,7 @@
 server:
   port: 58000
-
+  servlet:
+    context-path: /api/infra
 spring:
   servlet:
     multipart:
@@ -27,3 +28,12 @@ spring:
       test-while-idle: true
       #最小空闲时间
       min-evictable-idel-time-millis: 300000
+mybatis-plus:
+  # 配置mapper.xml文件的路径
+  mapper-locations: classpath*:top/hondaman/cloud/**/mapper/*Mapper.xml
+  global-config:
+    # 不显式设置默认为1
+    # 0-IGNORED 表示忽略该字段的空值判断，即无论实体对象的值为空还是非空，都会进行新增、更新操作。
+    # 1-NOT_NULL 表示字段不能为空，如果实体对象的值为空，则不会进行新增、更新操作。
+    # 2-NOT_EMPTY 表示字段不能为空字符串或 null 值，如果实体对象的值为空字符串或 null，则不会进行新增、更新操作。
+    field-strategy: 1

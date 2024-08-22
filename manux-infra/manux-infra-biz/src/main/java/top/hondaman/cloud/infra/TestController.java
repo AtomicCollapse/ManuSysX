@@ -9,7 +9,7 @@ import top.hondaman.cloud.infra.file.controller.FileApi;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/infra/test")
+@RequestMapping("/test")
 public class TestController {
     @Resource
     private FileApi fileApi;
@@ -20,5 +20,10 @@ public class TestController {
         fileApi.uploadFile(FileUtil.readBytes("C:\\Users\\Cheung\\Desktop\\-\\壁纸\\壁纸\\2.jpg"));
 
         return "请求成功到达";
+    }
+
+    @GetMapping("getMessage")
+    public String getMessage(){
+        return "请求成功";
     }
 }
