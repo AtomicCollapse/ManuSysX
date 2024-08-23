@@ -1,15 +1,14 @@
 package top.hondaman.cloud.infra.asyncImport.service;
 
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Service;
 import top.hondaman.cloud.framework.common.exception.ServiceException;
 import top.hondaman.cloud.framework.common.util.object.BeanUtils;
+import top.hondaman.cloud.framework.rabbitmq.utils.RabbitMQHelper;
 import top.hondaman.cloud.infra.asyncImport.controller.dto.AsyncImportTaskDTO;
 import top.hondaman.cloud.infra.asyncImport.controller.vo.AsyncImportTaskVO;
 import top.hondaman.cloud.infra.asyncImport.enums.AsyncImportTaskStatusEnum;
 import top.hondaman.cloud.infra.asyncImport.mapper.AsyncImportTaskMapper;
 import top.hondaman.cloud.infra.asyncImport.service.entity.AsyncImportTaskDO;
-import top.hondaman.cloud.infra.mq.enums.QueueConstants;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -19,8 +18,6 @@ import java.util.UUID;
 public class AsyncImportTaskService {
     @Resource
     private AsyncImportTaskMapper mapper;
-    @Resource
-    private AmqpTemplate amqpTemplate;
 
     public AsyncImportTaskVO getLastTask(String systemCode,String taskCode){
         AsyncImportTaskDO query = new AsyncImportTaskDO();
@@ -53,7 +50,12 @@ public class AsyncImportTaskService {
             entity.setStatus(AsyncImportTaskStatusEnum.STATUS_CHECK_00.getValue());
             mapper.insert(entity);
             //导入任务队列入队
-            amqpTemplate.convertAndSend(QueueConstants.IMPORT,entity);
+            /**
+             * 测试
+             */
+            String queueName = "ganhua";
+//            RabbitMQHelper.createQueue(queueName);
+            RabbitMQHelper.sendMessage(queueName,entity);
 
             return entity.getId();
         }else{

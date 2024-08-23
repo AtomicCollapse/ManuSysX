@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("asyncImport/config")
-public class AsyncImportConfigTaskController {
+public class AsyncImportConfigController {
     @Resource
     private AsyncImportConfigService service;
 

@@ -29,6 +29,10 @@
             <groupId>top.hondaman.cloud</groupId>
             <artifactId>manux-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>top.hondaman.cloud</groupId>
+            <artifactId>manux-spring-boot-starter-rabbitmq</artifactId>
+        </dependency>
         <!-- Spring Cloud 基础 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
