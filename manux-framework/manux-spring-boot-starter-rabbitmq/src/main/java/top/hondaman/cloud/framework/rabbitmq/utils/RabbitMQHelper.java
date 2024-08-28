@@ -17,7 +17,7 @@ public class RabbitMQHelper {
 
     public static void createQueue(String queueName) {
         Queue queue = new Queue(queueName, true);
-        if(isExistsQueue(queueName)){
+        if(!isExistsQueue(queueName)){
             amqpAdmin.declareQueue(queue);
         }else{
             log.debug(String.format("%s队列已存在。跳过",queueName));

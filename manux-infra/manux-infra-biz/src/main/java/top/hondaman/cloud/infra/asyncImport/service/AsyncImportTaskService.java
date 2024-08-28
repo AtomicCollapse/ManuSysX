@@ -5,6 +5,7 @@ import top.hondaman.cloud.framework.common.exception.ServiceException;
 import top.hondaman.cloud.framework.common.util.object.BeanUtils;
 import top.hondaman.cloud.framework.rabbitmq.utils.RabbitMQHelper;
 import top.hondaman.cloud.infra.asyncImport.controller.dto.AsyncImportTaskDTO;
+import top.hondaman.cloud.infra.asyncImport.controller.vo.AsyncImportConfigVO;
 import top.hondaman.cloud.infra.asyncImport.controller.vo.AsyncImportTaskVO;
 import top.hondaman.cloud.infra.asyncImport.enums.AsyncImportTaskStatusEnum;
 import top.hondaman.cloud.infra.asyncImport.mapper.AsyncImportTaskMapper;
@@ -18,6 +19,8 @@ import java.util.UUID;
 public class AsyncImportTaskService {
     @Resource
     private AsyncImportTaskMapper mapper;
+    @Resource
+    private AsyncImportConfigService configService;
 
     public AsyncImportTaskVO getLastTask(String systemCode,String taskCode){
         AsyncImportTaskDO query = new AsyncImportTaskDO();
@@ -29,6 +32,7 @@ public class AsyncImportTaskService {
     }
 
     public String insertTask(AsyncImportTaskDTO dto){
+        AsyncImportConfigVO configVO = configService.getConfigByCode(dto.getSystemCode(),dto.getTaskCode());
 
         /**
          * 判断是否有任务正在执行
@@ -53,8 +57,7 @@ public class AsyncImportTaskService {
             /**
              * 测试
              */
-            String queueName = "ganhua";
-//            RabbitMQHelper.createQueue(queueName);
+            String queueName = String.format("IMPORT_%s_%s",configVO.getSystemCode(),configVO.getTaskCode());
             RabbitMQHelper.sendMessage(queueName,entity);
 
             return entity.getId();
