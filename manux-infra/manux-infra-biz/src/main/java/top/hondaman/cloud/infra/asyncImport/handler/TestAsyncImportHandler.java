@@ -1,16 +1,8 @@
 package top.hondaman.cloud.infra.asyncImport.handler;
 
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessageListener;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
-import top.hondaman.cloud.infra.asyncImport.mapper.AsyncImportConfigMapper;
-import top.hondaman.cloud.infra.asyncImport.model.ImportTask;
 import top.hondaman.cloud.infra.asyncImport.service.AsyncImportHandler;
-import top.hondaman.cloud.infra.asyncImport.service.entity.AsyncImportTaskDO;
 
-import javax.annotation.Resource;
 
 /**
  * 导入任务消费者

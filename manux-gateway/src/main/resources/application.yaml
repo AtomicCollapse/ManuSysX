@@ -14,6 +14,11 @@ spring:
           uri: http://127.0.0.1:58000
           predicates:
             - Path=/api/infra/**
+        - #erp
+          id: erp
+          uri: http://127.0.0.1:58002
+          predicates:
+            - Path=/api/erp/**
       x-forwarded:
         prefix-enabled: false # 避免 Swagger 重复带上额外的 /admin-api/system 前缀
 

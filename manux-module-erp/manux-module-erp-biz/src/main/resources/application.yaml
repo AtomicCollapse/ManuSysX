@@ -1,5 +1,5 @@
 server:
-  port: 58000
+  port: 58002
 spring:
   servlet:
     multipart:

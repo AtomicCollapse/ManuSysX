@@ -46,6 +46,11 @@
             </dependency>
             <dependency>
                 <groupId>top.hondaman.cloud</groupId>
+                <artifactId>manux-module-erp-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.hondaman.cloud</groupId>
                 <artifactId>manux-spring-boot-starter-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
