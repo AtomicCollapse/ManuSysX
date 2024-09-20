@@ -1,6 +1,7 @@
 package top.hondaman.cloud.infra.framework.file.core.local;
 
 import cn.hutool.core.lang.Dict;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.template.Template;
 import cn.hutool.extra.template.TemplateConfig;
 import cn.hutool.extra.template.TemplateEngine;
@@ -9,6 +10,7 @@ import lombok.Data;
 import org.junit.jupiter.api.Test;
 import top.hondaman.cloud.infra.framework.codegen.Student;
 import java.io.File;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,5 +50,47 @@ public class CodeGenTest {
     }
 
 
+    /**
+     * 测试JDBC获取数据库表结构
+     */
+    @Test
+    public void getDataBaseStruct() throws Exception{
+        String JDBCUrl = "jdbc:postgresql://127.0.0.1:5432/manux";
+        //获取jdbc连接
+        Connection connection = DriverManager.getConnection(JDBCUrl,"postgres","12345678");
+        //从connection中获取数据库的元数据
+        DatabaseMetaData databaseMetaData = connection.getMetaData();
+        System.out.println(databaseMetaData.getCatalogs());//连接的库名
+        System.out.println(databaseMetaData.getDatabaseProductName());//数据库类型
+        System.out.println(databaseMetaData.getDatabaseProductVersion());//数据库版本号
 
+        //获取库中所有的表
+        ResultSet resultSet = databaseMetaData.getTables(null,"infra","%",null);
+
+        while(resultSet.next()){
+            String tableType = resultSet.getString("TABLE_TYPE");//表类型
+            if(StrUtil.isNotEmpty(tableType) && tableType.equals("TABLE")){
+                String tableName = resultSet.getString("TABLE_NAME");//表名
+                String tableRemark = resultSet.getString("REMARKS");//表备注
+                System.out.println("/*--------------*/");
+                System.out.println(String.format("%s %s",tableName,tableRemark));
+                System.out.println("/*--------------*/");
+
+                //表字段信息
+                ResultSet columnsRs = databaseMetaData.getColumns(null,"infra",tableName,null);
+                while (columnsRs.next()){
+                    System.out.println(
+                            columnsRs.getString("ORDINAL_POSITION")//字段序号
+                            +" "+columnsRs.getString("column_name")//字段名
+                            +" "+columnsRs.getString("TYPE_NAME")//字段类型
+                            +" "+columnsRs.getString("COLUMN_SIZE")//长度
+                            +" "+columnsRs.getString("DECIMAL_DIGITS")//精度
+                            +" "+columnsRs.getString("COLUMN_DEF")//默认值
+                            +" "+columnsRs.getString("REMARKS")//注释
+                            );
+                }
+            }
+        }
+
+    }
 }
