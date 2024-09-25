@@ -7,10 +7,8 @@ import org.springframework.stereotype.Service;
 import top.hondaman.cloud.framework.common.exception.ServiceException;
 import top.hondaman.cloud.framework.common.util.object.BeanUtils;
 import top.hondaman.cloud.framework.redis.oauth2.dto.OAuth2AccessTokenDto;
-import top.hondaman.cloud.framework.redis.oauth2.mapper.OAuth2AccessTokenRedisDAO;
 import top.hondaman.cloud.framework.redis.oauth2.service.OAuth2TokenService;
 import top.hondaman.cloud.infra.system.model.UserInfo;
-import top.hondaman.cloud.infra.system.model.UserInfoToken;
 import top.hondaman.cloud.module.pms.role.dto.PmsUserInfoParam;
 import top.hondaman.cloud.module.pms.role.mapper.PmsUserInfoMapper;
 
@@ -73,7 +71,7 @@ public class PmsUserInfoService {
             throw new ServiceException(400,"密码错误");
         }
 
-        OAuth2AccessTokenDto oAuth2AccessTokenDto = oAuth2TokenService.createAccessToken(loginUser.getId(),loginUser.getUserType());
+        OAuth2AccessTokenDto oAuth2AccessTokenDto = oAuth2TokenService.createAccessToken(loginUser.getId(),loginUser.getUserType(),loginUser.getUserName());
 
         return oAuth2AccessTokenDto.getAccessToken();
     }

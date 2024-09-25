@@ -16,7 +16,7 @@ public interface OAuth2TokenService {
      * @param userType 用户类型
      * @return 访问令牌的信息
      */
-    OAuth2AccessTokenDto createAccessToken(String userId,Integer userType);
+    OAuth2AccessTokenDto createAccessToken(String userId,Integer userType,String userName);
 
     /**
      * 移除访问令牌

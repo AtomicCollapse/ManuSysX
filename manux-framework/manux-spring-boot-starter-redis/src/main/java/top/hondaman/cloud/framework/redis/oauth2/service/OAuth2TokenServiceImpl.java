@@ -14,12 +14,13 @@ public class OAuth2TokenServiceImpl implements OAuth2TokenService{
     private OAuth2AccessTokenRedisDAO oAuth2AccessTokenRedisDAO;
 
     @Override
-    public OAuth2AccessTokenDto createAccessToken(String userId,Integer userType) {
+    public OAuth2AccessTokenDto createAccessToken(String userId,Integer userType,String userName) {
         OAuth2AccessTokenDto accessTokenDto = new OAuth2AccessTokenDto();
         accessTokenDto.setAccessToken(UUID.randomUUID().toString());
         accessTokenDto.setUserId(userId);
         accessTokenDto.setUserType(userType);
-        accessTokenDto.setExpiresTime(LocalDateTime.now().plusHours(12));
+        accessTokenDto.setUserName(userName);
+        accessTokenDto.setExpiresTime(LocalDateTime.now().plusHours(12));//token过期时间12小时
 
         oAuth2AccessTokenRedisDAO.set(accessTokenDto);
         return accessTokenDto;

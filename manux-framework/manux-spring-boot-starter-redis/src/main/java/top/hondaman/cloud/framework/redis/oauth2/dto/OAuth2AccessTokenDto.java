@@ -16,9 +16,11 @@ public class OAuth2AccessTokenDto {
      */
     private String userId;
     /**
+     * 用户名称
+     */
+    private String userName;
+    /**
      * 用户类型
-     *
-
      */
     private Integer userType;
     /**

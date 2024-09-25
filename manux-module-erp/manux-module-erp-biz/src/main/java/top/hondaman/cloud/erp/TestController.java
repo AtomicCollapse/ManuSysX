@@ -1,6 +1,7 @@
 package top.hondaman.cloud.erp;
 
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.json.JSONUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +10,7 @@ import top.hondaman.cloud.erp.enums.ApiConstants;
 import top.hondaman.cloud.framework.common.pojo.CommonResult;
 import top.hondaman.cloud.infra.asyncImport.api.AsyncImportTaskApi;
 import top.hondaman.cloud.infra.file.api.FileApi;
+import top.hondaman.cloud.infra.system.model.UserInfoToken;
 
 import javax.annotation.Resource;
 
@@ -34,7 +36,8 @@ public class TestController {
     }
 
     @GetMapping("")
-    public String testReq(){
-        return "请求成功到达";
+    public String testReq(UserInfoToken userInfoToken){
+        System.out.println(JSONUtil.toJsonStr(userInfoToken));
+        return "请求成功到达aaaa";
     }
 }

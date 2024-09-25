@@ -53,8 +53,12 @@ public class TokenAuthorizationFilter implements GlobalFilter {
             //从Redis校验token
             OAuth2AccessTokenDto oAuth2AccessTokenDto = oAuth2AccessTokenRedisDAO.get(accessToken);
             if(oAuth2AccessTokenDto != null){
-                // TODO 没找到好的办法，先直接把 token 塞到请求头里去，交给业务系统自己去redis拿用户信息
-                request = request.mutate().header("accessToken",oAuth2AccessTokenDto.getAccessToken()).build();
+//                //没找到好的办法，先直接把 token 塞到请求头里去，交给业务系统自己去redis拿用户信息
+//                request = request.mutate().header("accessToken",oAuth2AccessTokenDto.getAccessToken()).build();
+                /**
+                 * 此处修改
+                 * 交给自定义servlet参数解析器[TokenUserHandlerMethodArgumentResolver]处理
+                 */
                 //放行
                 return chain.filter(exchange.mutate().request(request).build());
             }
