@@ -19,6 +19,15 @@ spring:
         name: # 使用的 Nacos 配置集的 dataId，默认为 spring.application.name
         file-extension: yaml # 使用的 Nacos 配置集的 dataId 的文件拓展名，同时也是 Nacos 配置集的配置格式，默认为 properties
 
+--- #################### Sentinel ####################
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:58080
+#feign:
+#  sentinel:
+#    enabled: true
 
 --- #################### MQ ####################
 rabbitmq:

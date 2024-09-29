@@ -11,7 +11,6 @@ import top.hondaman.cloud.framework.redis.oauth2.dto.OAuth2AccessTokenDto;
 import top.hondaman.cloud.framework.redis.oauth2.mapper.OAuth2AccessTokenRedisDAO;
 import top.hondaman.cloud.infra.system.model.UserInfoToken;
 
-import javax.annotation.Resource;
 
 /**
  * 处理Token信息
