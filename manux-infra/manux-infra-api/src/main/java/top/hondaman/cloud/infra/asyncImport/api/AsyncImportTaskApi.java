@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import top.hondaman.cloud.framework.common.pojo.CommonResult;
-import top.hondaman.cloud.infra.asyncImport.api.dto.AsyncImportTaskDTO;
-import top.hondaman.cloud.infra.asyncImport.api.vo.AsyncImportTaskVO;
+import top.hondaman.cloud.system.asyncimport.api.dto.AsyncImportTaskDTO;
+import top.hondaman.cloud.system.asyncimport.api.vo.AsyncImportTaskVO;
 import top.hondaman.cloud.infra.enums.ApiConstants;
 
 import javax.validation.Valid;

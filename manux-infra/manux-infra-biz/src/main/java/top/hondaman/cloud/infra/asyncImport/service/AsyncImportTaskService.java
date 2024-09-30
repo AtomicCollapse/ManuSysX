@@ -4,12 +4,13 @@ import org.springframework.stereotype.Service;
 import top.hondaman.cloud.framework.common.exception.ServiceException;
 import top.hondaman.cloud.framework.common.util.object.BeanUtils;
 import top.hondaman.cloud.framework.rabbitmq.utils.RabbitMQHelper;
-import top.hondaman.cloud.infra.asyncImport.api.dto.AsyncImportTaskDTO;
-import top.hondaman.cloud.infra.asyncImport.api.vo.AsyncImportConfigVO;
-import top.hondaman.cloud.infra.asyncImport.api.vo.AsyncImportTaskVO;
-import top.hondaman.cloud.infra.asyncImport.enums.AsyncImportTaskStatusEnum;
+import top.hondaman.cloud.system.asyncimport.api.dto.AsyncImportTaskDTO;
+import top.hondaman.cloud.system.asyncimport.api.vo.AsyncImportConfigVO;
+import top.hondaman.cloud.system.asyncimport.api.vo.AsyncImportTaskVO;
+import top.hondaman.cloud.system.asyncimport.enums.AsyncImportTaskStatusEnum;
 import top.hondaman.cloud.infra.asyncImport.mapper.AsyncImportTaskMapper;
 import top.hondaman.cloud.infra.asyncImport.service.entity.AsyncImportTaskDO;
+import top.hondaman.cloud.system.asyncimport.enums.MQConstants;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -57,8 +58,8 @@ public class AsyncImportTaskService {
             /**
              * 测试
              */
-            String queueName = String.format("IMPORT_%s_%s",configVO.getSystemCode(),configVO.getTaskCode());
-            RabbitMQHelper.sendMessage(queueName,entity);
+            String queueName = MQConstants.ASYNC_IMPORT;
+            RabbitMQHelper.sendMessage(queueName,BeanUtils.toBean(entity,AsyncImportTaskVO.class));
 
             return entity.getId();
         }else{

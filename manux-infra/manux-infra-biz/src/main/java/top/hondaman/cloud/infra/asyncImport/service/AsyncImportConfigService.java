@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import top.hondaman.cloud.framework.common.exception.ServiceException;
 import top.hondaman.cloud.framework.common.util.object.BeanUtils;
 import top.hondaman.cloud.framework.rabbitmq.utils.RabbitMQHelper;
-import top.hondaman.cloud.infra.asyncImport.api.dto.AsyncImportConfigDTO;
-import top.hondaman.cloud.infra.asyncImport.api.vo.AsyncImportConfigVO;
+import top.hondaman.cloud.system.asyncimport.api.dto.AsyncImportConfigDTO;
+import top.hondaman.cloud.system.asyncimport.api.vo.AsyncImportConfigVO;
 import top.hondaman.cloud.infra.asyncImport.mapper.AsyncImportConfigMapper;
 import top.hondaman.cloud.infra.asyncImport.service.entity.AsyncImportConfigDO;
 

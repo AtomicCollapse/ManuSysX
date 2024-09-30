@@ -1,14 +1,15 @@
 package top.hondaman.cloud.infra.asyncImport.handler;
 
 import org.springframework.stereotype.Component;
-import top.hondaman.cloud.infra.asyncImport.service.AsyncImportHandler;
+import top.hondaman.cloud.infra.asyncImport.core.AbstractAsyncImportHandler;
+import top.hondaman.cloud.system.asyncimport.core.AsyncImportHandler;
 
 
 /**
  * 导入任务消费者
  */
 @Component
-public class TestAsyncImportHandler implements AsyncImportHandler {
+public class Test1AsyncImportHandler implements AsyncImportHandler {
 
     @Override
     public String getSystemCode() {

@@ -64,6 +64,11 @@
                 <artifactId>manux-spring-boot-starter-web</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>top.hondaman.cloud</groupId>
+                <artifactId>manux-system-async-import</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!-- 统一依赖管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

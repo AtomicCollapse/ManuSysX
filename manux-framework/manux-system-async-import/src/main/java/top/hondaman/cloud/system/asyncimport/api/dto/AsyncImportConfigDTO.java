@@ -1,4 +1,4 @@
-package top.hondaman.cloud.infra.asyncImport.api.dto;
+package top.hondaman.cloud.system.asyncimport.api.dto;
 
 import lombok.Data;
 import top.hondaman.cloud.framework.common.pojo.BasicModel;

@@ -33,6 +33,10 @@
             <groupId>top.hondaman.cloud</groupId>
             <artifactId>manux-spring-boot-starter-rabbitmq</artifactId>
         </dependency>
+        <dependency>
+            <groupId>top.hondaman.cloud</groupId>
+            <artifactId>manux-system-async-import</artifactId>
+        </dependency>
         <!-- Spring Cloud 基础 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

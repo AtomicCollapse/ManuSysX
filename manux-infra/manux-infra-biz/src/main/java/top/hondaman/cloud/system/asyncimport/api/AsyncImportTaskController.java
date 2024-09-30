@@ -1,19 +1,19 @@
-package top.hondaman.cloud.infra.asyncImport.api;
+package top.hondaman.cloud.system.asyncimport.api;
 
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import top.hondaman.cloud.framework.common.pojo.CommonResult;
-import top.hondaman.cloud.infra.asyncImport.api.dto.AsyncImportTaskDTO;
-import top.hondaman.cloud.infra.asyncImport.api.vo.AsyncImportTaskVO;
+import top.hondaman.cloud.infra.asyncImport.api.AsyncImportTaskApi;
+import top.hondaman.cloud.system.asyncimport.api.dto.AsyncImportTaskDTO;
+import top.hondaman.cloud.system.asyncimport.api.vo.AsyncImportTaskVO;
 import top.hondaman.cloud.infra.asyncImport.service.AsyncImportTaskService;
-import top.hondaman.cloud.infra.enums.ApiConstants;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
 @RestController
 @Validated
-public class AsyncImportTaskController implements AsyncImportTaskApi{
+public class AsyncImportTaskController implements AsyncImportTaskApi {
     @Resource
     private AsyncImportTaskService service;
 
