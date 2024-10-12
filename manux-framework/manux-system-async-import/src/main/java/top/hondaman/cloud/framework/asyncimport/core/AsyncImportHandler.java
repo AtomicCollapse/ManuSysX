@@ -1,4 +1,4 @@
-package top.hondaman.cloud.system.asyncimport.core;
+package top.hondaman.cloud.framework.asyncimport.core;
 
 /**
  * 异步导入消费者抽象接口

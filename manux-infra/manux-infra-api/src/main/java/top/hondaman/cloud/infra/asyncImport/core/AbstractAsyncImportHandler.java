@@ -1,6 +1,6 @@
 package top.hondaman.cloud.infra.asyncImport.core;
 
-import top.hondaman.cloud.system.asyncimport.core.AsyncImportHandler;
+import top.hondaman.cloud.framework.asyncimport.core.AsyncImportHandler;
 
 /**
  * 抽象异步导入处理器

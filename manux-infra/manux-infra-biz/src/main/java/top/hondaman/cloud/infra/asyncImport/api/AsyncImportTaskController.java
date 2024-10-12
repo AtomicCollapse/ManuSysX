@@ -1,11 +1,10 @@
-package top.hondaman.cloud.system.asyncimport.api;
+package top.hondaman.cloud.infra.asyncImport.api;
 
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import top.hondaman.cloud.framework.common.pojo.CommonResult;
-import top.hondaman.cloud.infra.asyncImport.api.AsyncImportTaskApi;
-import top.hondaman.cloud.system.asyncimport.api.dto.AsyncImportTaskDTO;
-import top.hondaman.cloud.system.asyncimport.api.vo.AsyncImportTaskVO;
+import top.hondaman.cloud.framework.asyncimport.api.dto.AsyncImportTaskDTO;
+import top.hondaman.cloud.framework.asyncimport.api.vo.AsyncImportTaskVO;
 import top.hondaman.cloud.infra.asyncImport.service.AsyncImportTaskService;
 
 import javax.annotation.Resource;

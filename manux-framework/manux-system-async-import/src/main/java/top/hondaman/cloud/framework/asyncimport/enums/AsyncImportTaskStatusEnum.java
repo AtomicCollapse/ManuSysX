@@ -1,4 +1,4 @@
-package top.hondaman.cloud.system.asyncimport.enums;
+package top.hondaman.cloud.framework.asyncimport.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

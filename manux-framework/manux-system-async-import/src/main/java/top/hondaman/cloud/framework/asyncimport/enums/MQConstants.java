@@ -1,4 +1,4 @@
-package top.hondaman.cloud.system.asyncimport.enums;
+package top.hondaman.cloud.framework.asyncimport.enums;
 
 /**
  * MQ相关枚举

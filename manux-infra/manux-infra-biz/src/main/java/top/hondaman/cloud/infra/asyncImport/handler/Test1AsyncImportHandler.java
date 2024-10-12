@@ -1,8 +1,7 @@
 package top.hondaman.cloud.infra.asyncImport.handler;
 
 import org.springframework.stereotype.Component;
-import top.hondaman.cloud.infra.asyncImport.core.AbstractAsyncImportHandler;
-import top.hondaman.cloud.system.asyncimport.core.AsyncImportHandler;
+import top.hondaman.cloud.framework.asyncimport.core.AsyncImportHandler;
 
 
 /**
