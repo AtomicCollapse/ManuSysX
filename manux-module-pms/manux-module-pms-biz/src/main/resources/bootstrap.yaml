@@ -1,6 +1,6 @@
 spring:
   application:
-    name: pms
+    name: pms-server
 
   profiles:
     active: local

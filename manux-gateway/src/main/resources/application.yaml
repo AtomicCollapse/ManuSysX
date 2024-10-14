@@ -1,30 +1,34 @@
-spring:
-  cloud:
-    # Spring Cloud Gateway 配置项，对应 GatewayProperties 类
-    gateway:
-      # 路由配置项，对应 RouteDefinition 数组
-      routes:
-        - #PMS
-          id: pms
-          uri: http://127.0.0.1:58001
-          predicates:
-            - Path=/api/pms/**
-        - #infra
-          id: infra
-          uri: http://127.0.0.1:58000
-          predicates:
-            - Path=/api/infra/**
-        - #erp
-          id: erp
-          uri: http://127.0.0.1:58002
-          predicates:
-            - Path=/api/erp/**
-      x-forwarded:
-        prefix-enabled: false # 避免 Swagger 重复带上额外的 /admin-api/system 前缀
+#-------------------------#
+# 此处配置已全部迁移Nacos Config配置中心
+#-------------------------#
 
-  # Redis 配置。Redisson 默认的配置足够使用，一般不需要进行调优
-  redis:
-    host: 127.0.0.1
-    port: 6379 # 端口
-    database: 0 # 数据库索引
-#    password: 123456 # 密码，建议生产环境开启
+#spring:
+#  cloud:
+#    # Spring Cloud Gateway 配置项，对应 GatewayProperties 类
+#    gateway:
+#      # 路由配置项，对应 RouteDefinition 数组
+#      routes:
+#        - #PMS
+#          id: pms
+#          uri: http://127.0.0.1:58001
+#          predicates:
+#            - Path=/api/pms/**
+#        - #infra
+#          id: infra
+#          uri: http://127.0.0.1:58000
+#          predicates:
+#            - Path=/api/infra/**
+#        - #erp
+#          id: erp
+#          uri: http://127.0.0.1:58002
+#          predicates:
+#            - Path=/api/erp/**
+#      x-forwarded:
+#        prefix-enabled: false # 避免 Swagger 重复带上额外的 /admin-api/system 前缀
+#
+#  # Redis 配置。Redisson 默认的配置足够使用，一般不需要进行调优
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379 # 端口
+#    database: 0 # 数据库索引
+##    password: 123456 # 密码，建议生产环境开启
