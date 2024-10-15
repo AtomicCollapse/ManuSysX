@@ -36,6 +36,7 @@
         <dependency>
             <groupId>top.hondaman.cloud</groupId>
             <artifactId>manux-system-async-import</artifactId>
+            <optional>true</optional>
         </dependency>
         <!-- Spring Cloud 基础 -->
         <dependency>

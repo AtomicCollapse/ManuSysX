@@ -2,7 +2,7 @@
 spring:
   cloud:
     nacos:
-      server-addr: 127.0.0.1:8848
+      server-addr: supernas.hondaman.top:38848
       discovery:
         namespace: dev # 命名空间。这里使用 dev 开发环境
 
@@ -13,7 +13,7 @@ spring:
     nacos:
       # Nacos Config 配置项，对应 NacosConfigProperties 配置属性类
       config:
-        server-addr: 127.0.0.1:8848 # Nacos 服务器地址
+        server-addr: supernas.hondaman.top:38848 # Nacos 服务器地址
         namespace: dev # 命名空间。这里使用 dev 开发环境
         group: DEFAULT_GROUP # 使用的 Nacos 配置分组，默认为 DEFAULT_GROUP
         name: # 使用的 Nacos 配置集的 dataId，默认为 spring.application.name
@@ -28,20 +28,3 @@ spring:
 #feign:
 #  sentinel:
 #    enabled: true
-
---- #################### MQ ####################
-rabbitmq:
-  host: 127.0.0.1
-  username: guest
-  password: guest
-  port: 5672
-spring:
-  rabbitmq:
-    listener:
-      simple:
-        default-requeue-rejected: true # 不丢弃  默认是true
-        retry:
-          enabled: true # 开启消费者进行重试
-          max-attempts: 5 # 最大重试次数
-          initial-interval: 3000 # 重试时间间隔
-###重试次数用尽后，该条消息就丢了，最好设置死信队列托底

@@ -24,6 +24,7 @@
         <dependency>
             <groupId>top.hondaman.cloud</groupId>
             <artifactId>manux-system-async-import</artifactId>
+            <optional>true</optional>
         </dependency>
         <!-- RPC 远程调用相关 -->
         <dependency>
