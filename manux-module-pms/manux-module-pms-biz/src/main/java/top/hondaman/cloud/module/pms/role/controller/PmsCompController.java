@@ -3,6 +3,7 @@ package top.hondaman.cloud.module.pms.role.controller;
 import org.springframework.web.bind.annotation.*;
 import top.hondaman.cloud.framework.common.pojo.CommonResult;
 import top.hondaman.cloud.framework.common.pojo.PageResult;
+import top.hondaman.cloud.infra.system.model.PageParam;
 import top.hondaman.cloud.module.pms.role.dto.PmsCompDto;
 import top.hondaman.cloud.module.pms.role.dto.PmsCompParam;
 import top.hondaman.cloud.module.pms.role.service.PmsCompService;
@@ -18,9 +19,9 @@ public class PmsCompController {
     @Resource
     private PmsCompService pmsCompService;
 
-    @GetMapping("pageList")
-    public CommonResult<PageResult<PmsCompDto>> getListPage(@RequestBody PmsCompParam param,@RequestHeader("userId") String userId){
-        PageResult<PmsCompDto> pageResult = pmsCompService.getListPage(param);
+    @PostMapping("pageList")
+    public CommonResult<PageResult<PmsCompDto>> getListPage(@RequestBody PmsCompParam param, PageParam pageParam){
+        PageResult<PmsCompDto> pageResult = pmsCompService.getListPage(param,pageParam);
         return success(pageResult);
     }
 

@@ -6,7 +6,6 @@ import java.io.Serializable;
 /**
  * 排序信息
  *
- * @author zyzhu
  */
 @Data
 public class SortParam implements Serializable {
@@ -53,7 +52,7 @@ public class SortParam implements Serializable {
     /***
      * 排序的方向
      */
-    enum Order {
+    public static enum Order {
         ASC,
         DESC;
         public static Order fromString(String value) {

@@ -31,6 +31,10 @@
         </dependency>
         <dependency>
             <groupId>top.hondaman.cloud</groupId>
+            <artifactId>manux-spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>top.hondaman.cloud</groupId>
             <artifactId>manux-spring-boot-starter-rabbitmq</artifactId>
         </dependency>
         <dependency>

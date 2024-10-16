@@ -7,6 +7,7 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
 import top.hondaman.cloud.framework.common.pojo.PageResult;
 import top.hondaman.cloud.framework.common.util.object.BeanUtils;
+import top.hondaman.cloud.infra.system.model.PageParam;
 import top.hondaman.cloud.module.pms.role.dto.PmsCompDto;
 import top.hondaman.cloud.module.pms.role.dto.PmsCompParam;
 import top.hondaman.cloud.module.pms.role.mapper.PmsCompMapper;
@@ -20,11 +21,11 @@ public class PmsCompService {
     @Resource
     private PmsCompMapper pmsCompMapper;
 
-    public PageResult<PmsCompDto> getListPage(PmsCompParam param){
+    public PageResult<PmsCompDto> getListPage(PmsCompParam param, PageParam pageParam){
         QueryWrapper queryWrapper = new QueryWrapper<PmsComp>();
         queryWrapper.like(StrUtil.isNotEmpty(param.getName()),"name",param.getName());
 
-        Page<PmsComp> page = PageHelper.startPage(param.getPage(),param.getLimit(),param.getSortOrderContent())
+        Page<PmsComp> page = PageHelper.startPage(pageParam.getPage(),pageParam.getLimit(),pageParam.getSortOrderContent())
                 .doSelectPage(() -> pmsCompMapper.selectList(queryWrapper));
 
         List<PmsCompDto> dtos = BeanUtils.toBean(page.getResult(),PmsCompDto.class);

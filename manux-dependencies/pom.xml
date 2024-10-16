@@ -27,7 +27,7 @@
         <redisson.version>3.18.0</redisson.version> <!-- Spring Boot 2.X 最多使用 3.18.0 版本，否则会报 Tuple NoClassDefFoundError -->
         <tika-core.version>2.9.1</tika-core.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
-        <pagehelper.version>2.1.0</pagehelper.version>
+        <pagehelper.version>2.0.0</pagehelper.version>
         <velocity.version>2.3</velocity.version>
     </properties>
 

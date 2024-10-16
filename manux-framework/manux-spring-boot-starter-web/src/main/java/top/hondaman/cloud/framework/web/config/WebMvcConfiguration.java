@@ -3,6 +3,7 @@ package top.hondaman.cloud.framework.web.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import top.hondaman.cloud.framework.web.core.PageParamHandlerMethodArgumentResolver;
 import top.hondaman.cloud.framework.web.core.TokenUserHandlerMethodArgumentResolver;
 
 import java.util.List;
@@ -17,9 +18,16 @@ import java.util.List;
  */
 @Configuration
 public class WebMvcConfiguration implements WebMvcConfigurer {
+
+    /**
+     * 这种方案为了传递UserInfoToken之类的公共信息，需要显式声明Controller方法的入参，然后逐级传递service方法a、方法b，会造成代码冗余
+     * 替代方案：ThreadLocal
+     * @param resolvers
+     */
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         //注册自定义参数解析器
-        resolvers.add(new TokenUserHandlerMethodArgumentResolver());
+        resolvers.add(new TokenUserHandlerMethodArgumentResolver());//UserInfoToken用户信息
+        resolvers.add(new PageParamHandlerMethodArgumentResolver());//PageParam分页参数
     }
 }
