@@ -14,6 +14,7 @@
     <module>manux-infra</module>
     <module>manux-framework</module>
     <module>manux-module-pms</module>
+    <module>manux-module-erp</module>
   </modules>
   <properties>
     <lombok.version>1.18.30</lombok.version>

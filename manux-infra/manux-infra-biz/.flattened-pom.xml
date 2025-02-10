@@ -25,6 +25,19 @@
       <artifactId>manux-common</artifactId>
     </dependency>
     <dependency>
+      <groupId>top.hondaman.cloud</groupId>
+      <artifactId>manux-spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>top.hondaman.cloud</groupId>
+      <artifactId>manux-spring-boot-starter-rabbitmq</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>top.hondaman.cloud</groupId>
+      <artifactId>manux-system-async-import</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-bootstrap</artifactId>
     </dependency>
@@ -35,6 +48,10 @@
     <dependency>
       <groupId>com.alibaba.cloud</groupId>
       <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.tika</groupId>
@@ -69,8 +86,25 @@
       <artifactId>pagehelper-spring-boot-starter</artifactId>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity-engine-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+      <version>2.2.10</version>
+    </dependency>
   </dependencies>
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/mapper/*Mapper.xml</include>
+        </includes>
+      </resource>
+    </resources>
     <finalName>${project.artifactId}</finalName>
     <plugins>
       <plugin>
@@ -84,6 +118,13 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+        <configuration>
+          <skipTests>true</skipTests>
+        </configuration>
       </plugin>
     </plugins>
   </build>

@@ -15,5 +15,8 @@
   <modules>
     <module>manux-common</module>
     <module>manux-spring-boot-starter-redis</module>
+    <module>manux-spring-boot-starter-rabbitmq</module>
+    <module>manux-spring-boot-starter-web</module>
+    <module>manux-system-async-import</module>
   </modules>
 </project>

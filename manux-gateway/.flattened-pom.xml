@@ -18,8 +18,8 @@
       <artifactId>manux-spring-boot-starter-redis</artifactId>
       <exclusions>
         <exclusion>
-          <artifactId>spring-boot-starter-web</artifactId>
           <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -38,6 +38,10 @@
     <dependency>
       <groupId>com.alibaba.cloud</groupId>
       <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
     </dependency>
   </dependencies>
   <build>
