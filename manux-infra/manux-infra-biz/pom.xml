@@ -42,6 +42,11 @@
             <artifactId>manux-system-async-import</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>top.hondaman.cloud</groupId>
+            <artifactId>manux-spring-boot-starter-redis</artifactId>
+            <optional>true</optional>
+        </dependency>
         <!-- Spring Cloud 基础 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -109,6 +114,11 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
             <version>2.2.10</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
