@@ -1,0 +1,30 @@
+package top.hondaman.manux.module.infra.dal.mysql.demo;
+
+import java.util.*;
+
+import top.hondaman.manux.framework.common.pojo.PageResult;
+import top.hondaman.manux.framework.common.pojo.PageParam;
+import top.hondaman.manux.framework.mybatis.core.query.LambdaQueryWrapperX;
+import top.hondaman.manux.framework.mybatis.core.mapper.BaseMapperX;
+import top.hondaman.manux.module.infra.dal.dataobject.demo.InfraStudentContactDO;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * 学生联系人 Mapper
+ *
+ * @author 芋道源码
+ */
+@Mapper
+public interface InfraStudentContactMapper extends BaseMapperX<InfraStudentContactDO> {
+
+    default PageResult<InfraStudentContactDO> selectPage(PageParam reqVO, Long studentId) {
+        return selectPage(reqVO, new LambdaQueryWrapperX<InfraStudentContactDO>()
+            .eq(InfraStudentContactDO::getStudentId, studentId)
+            .orderByDesc(InfraStudentContactDO::getId));
+    }
+
+    default int deleteByStudentId(Long studentId) {
+        return delete(InfraStudentContactDO::getStudentId, studentId);
+    }
+
+}

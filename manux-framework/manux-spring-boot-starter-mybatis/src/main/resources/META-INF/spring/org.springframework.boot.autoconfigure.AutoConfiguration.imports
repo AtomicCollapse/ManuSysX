@@ -1,0 +1,3 @@
+top.hondaman.manux.framework.datasource.config.ManuxDataSourceAutoConfiguration
+top.hondaman.manux.framework.mybatis.config.ManuxMybatisAutoConfiguration
+top.hondaman.manux.framework.translate.config.ManuxTranslateAutoConfiguration

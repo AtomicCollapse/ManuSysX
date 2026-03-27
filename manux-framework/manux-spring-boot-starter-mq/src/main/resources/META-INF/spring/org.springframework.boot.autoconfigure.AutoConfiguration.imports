@@ -1,0 +1,3 @@
+top.hondaman.manux.framework.mq.redis.config.ManuxRedisMQProducerAutoConfiguration
+top.hondaman.manux.framework.mq.redis.config.ManuxRedisMQConsumerAutoConfiguration
+top.hondaman.manux.framework.mq.rabbitmq.config.ManuxRabbitMQAutoConfiguration

@@ -5,23 +5,45 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>manux</artifactId>
-        <groupId>top.hondaman.cloud</groupId>
+        <groupId>top.hondaman.manux</groupId>
         <version>${revision}</version>
     </parent>
     <packaging>pom</packaging>
-
     <modules>
         <module>manux-common</module>
+        <module>manux-spring-boot-starter-env</module>
+        <module>manux-spring-boot-starter-mybatis</module>
         <module>manux-spring-boot-starter-redis</module>
-        <module>manux-spring-boot-starter-rabbitmq</module>
         <module>manux-spring-boot-starter-web</module>
-        <module>manux-system-async-import</module>
-    </modules>
+        <module>manux-spring-boot-starter-security</module>
+        <module>manux-spring-boot-starter-websocket</module>
 
+        <module>manux-spring-boot-starter-monitor</module>
+        <module>manux-spring-boot-starter-protection</module>
+<!--        <module>manux-spring-boot-starter-config</module>-->
+        <module>manux-spring-boot-starter-job</module>
+        <module>manux-spring-boot-starter-mq</module>
+        <module>manux-spring-boot-starter-rpc</module>
+
+        <module>manux-spring-boot-starter-excel</module>
+        <module>manux-spring-boot-starter-test</module>
+
+        <module>manux-spring-boot-starter-biz-tenant</module>
+        <module>manux-spring-boot-starter-biz-data-permission</module>
+        <module>manux-spring-boot-starter-biz-ip</module>
+    </modules>
 
     <artifactId>manux-framework</artifactId>
     <description>
-        该包是技术组件,每个子包代表一个组件
+        该包是技术组件，每个子包，代表一个组件。每个组件包括两部分：
+            1. core 包：是该组件的核心封装
+            2. config 包：是该组件基于 Spring 的配置
+
+        技术组件，也分成两类：
+            1. 框架组件：和我们熟悉的 MyBatis、Redis 等等的拓展
+            2. 业务组件：和业务相关的组件的封装，例如说数据字典、操作日志等等。
+        如果是业务组件，Maven 名字会包含 biz
     </description>
+    <url>https://github.com/YunaiV/ruoyi-vue-pro</url>
 
 </project>

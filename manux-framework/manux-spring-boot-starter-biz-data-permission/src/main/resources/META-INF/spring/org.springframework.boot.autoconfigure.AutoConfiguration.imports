@@ -1,0 +1,3 @@
+top.hondaman.manux.framework.datapermission.config.ManuxDataPermissionAutoConfiguration
+top.hondaman.manux.framework.datapermission.config.ManuxDeptDataPermissionAutoConfiguration
+top.hondaman.manux.framework.datapermission.config.ManuxDataPermissionRpcAutoConfiguration

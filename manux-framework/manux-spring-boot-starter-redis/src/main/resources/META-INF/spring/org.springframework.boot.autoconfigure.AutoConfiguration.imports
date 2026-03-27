@@ -1,0 +1,2 @@
+top.hondaman.manux.framework.redis.config.ManuxRedisAutoConfiguration
+top.hondaman.manux.framework.redis.config.ManuxCacheAutoConfiguration

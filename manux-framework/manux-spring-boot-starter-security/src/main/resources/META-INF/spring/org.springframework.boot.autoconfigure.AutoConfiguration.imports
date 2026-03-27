@@ -1,0 +1,5 @@
+top.hondaman.manux.framework.security.config.ManuxSecurityRpcAutoConfiguration
+top.hondaman.manux.framework.security.config.ManuxSecurityAutoConfiguration
+top.hondaman.manux.framework.security.config.ManuxWebSecurityConfigurerAdapter
+top.hondaman.manux.framework.operatelog.config.ManuxOperateLogConfiguration
+top.hondaman.manux.framework.operatelog.config.ManuxOperateLogRpcAutoConfiguration

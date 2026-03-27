@@ -1,0 +1,8 @@
+top.hondaman.manux.framework.apilog.config.ManuxApiLogAutoConfiguration
+top.hondaman.manux.framework.jackson.config.ManuxJacksonAutoConfiguration
+top.hondaman.manux.framework.swagger.config.ManuxSwaggerAutoConfiguration
+top.hondaman.manux.framework.web.config.ManuxWebAutoConfiguration
+top.hondaman.manux.framework.apilog.config.ManuxApiLogRpcAutoConfiguration
+top.hondaman.manux.framework.xss.config.ManuxXssAutoConfiguration
+top.hondaman.manux.framework.banner.config.ManuxBannerAutoConfiguration
+top.hondaman.manux.framework.encrypt.config.ManuxApiEncryptAutoConfiguration

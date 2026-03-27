@@ -1,0 +1,1 @@
+package top.hondaman.manux.module.crm.framework.permission.core;
