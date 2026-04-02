@@ -19,13 +19,13 @@
         <module>manux-module-member</module>
         <module>manux-module-bpm</module>
         <module>manux-module-pay</module>
-        <module>manux-module-report</module>
-        <module>manux-module-mp</module>
-        <module>manux-module-mall</module>
+<!--        <module>manux-module-report</module>-->
+<!--        <module>manux-module-mp</module>-->
+<!--        <module>manux-module-mall</module>-->
         <module>manux-module-crm</module>
         <module>manux-module-erp</module>
-        <module>manux-module-ai</module>
-        <module>manux-module-iot</module>
+<!--        <module>manux-module-ai</module>-->
+<!--        <module>manux-module-iot</module>-->
     </modules>
 
     <name>${project.artifactId}</name>
