@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>top.hondaman.manux</groupId>
+        <artifactId>manux-module-im</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>manux-module-im-server</artifactId>
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>
+        im 模块的服务包
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>top.hondaman.manux</groupId>
+            <artifactId>manux-module-im-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>top.hondaman.manux</groupId>
+            <artifactId>manux-module-infra-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>top.hondaman.manux</groupId>
+            <artifactId>manux-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>top.hondaman.manux</groupId>
+            <artifactId>manux-spring-boot-starter-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>top.hondaman.manux</groupId>
+            <artifactId>manux-spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- Spring 核心 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <!-- DB 相关 -->
+        <dependency>
+            <groupId>top.hondaman.manux</groupId>
+            <artifactId>manux-spring-boot-starter-mybatis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>top.hondaman.manux</groupId>
+            <artifactId>manux-spring-boot-starter-protection</artifactId>
+        </dependency>
+
+        <!--thumbnailator图片处理-->
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>

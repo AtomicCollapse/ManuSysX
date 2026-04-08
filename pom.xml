@@ -24,7 +24,9 @@
 <!--        <module>manux-module-mall</module>-->
         <module>manux-module-crm</module>
         <module>manux-module-erp</module>
-<!--        <module>manux-module-ai</module>-->
+        <module>manux-module-wms</module>
+        <module>manux-module-im</module>
+        <!--        <module>manux-module-ai</module>-->
 <!--        <module>manux-module-iot</module>-->
     </modules>
 

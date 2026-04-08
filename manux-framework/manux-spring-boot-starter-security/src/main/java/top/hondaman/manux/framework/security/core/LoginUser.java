@@ -47,6 +47,14 @@ public class LoginUser {
      * 过期时间
      */
     private LocalDateTime expiresTime;
+    /**
+     * im用户ID
+     */
+    private Long imUserId;
+    /**
+     * 用户终端类型
+     */
+    private Integer terminal;
 
     // ========== 上下文 ==========
     /**

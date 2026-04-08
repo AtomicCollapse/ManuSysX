@@ -159,4 +159,19 @@ public class SecurityFrameworkUtils {
         return ObjUtil.notEqual(loginUser.getVisitTenantId(), loginUser.getTenantId());
     }
 
+    /**
+     * 获取当前登录用户的 imUserId
+     * @return imUserId
+     */
+    public static Long getLoginImUserId() {
+        return getLoginUser().getImUserId();
+    }
+
+    /**
+     * 获取当前登录用户的终端类型
+     * @return 终端类型
+     */
+    public static Integer getLoginTerminate() {
+        return getLoginUser().getTerminal();
+    }
 }
