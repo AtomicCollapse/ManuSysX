@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import top.hondaman.manux.framework.common.pojo.CommonResult;
 import top.hondaman.manux.framework.common.util.object.BeanUtils;
 import top.hondaman.manux.framework.security.core.util.SecurityFrameworkUtils;
+import top.hondaman.manux.module.im.api.user.dto.RegisterDTO;
 import top.hondaman.manux.module.im.controller.admin.user.vo.IMUserVO;
 import top.hondaman.manux.module.im.controller.admin.user.vo.OnlineTerminalVO;
 import top.hondaman.manux.module.im.dal.dataobject.user.IMUserDO;
@@ -28,6 +29,14 @@ public class IMUserController {
 
     @Resource
     private UserService userService;
+
+    // TODO 这个接口要移到api里去
+    @PostMapping("/register")
+    @Operation(summary = "用户注册", description = "用户注册")
+    public CommonResult<Boolean> register(@Valid @RequestBody RegisterDTO dto) {
+        userService.register(dto);
+        return success(true);
+    }
 
 
     @GetMapping("/terminal/online")

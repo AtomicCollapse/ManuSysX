@@ -29,4 +29,9 @@ public class OAuth2AccessTokenCreateReqDTO implements Serializable {
     @Schema(description = "授权范围的数组", example = "user_info")
     private List<String> scopes;
 
+    @Schema(description = "im用户id")
+    private Long imUserId;
+
+    @Schema(description = "登录终端类型")
+    private Integer terminal;
 }

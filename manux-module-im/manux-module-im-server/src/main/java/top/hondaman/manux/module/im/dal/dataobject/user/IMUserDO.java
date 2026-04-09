@@ -83,4 +83,13 @@ public class IMUserDO extends BaseDO {
      */
     private Integer type;
 
+    /**
+     * 用户类型
+     */
+    private Integer userType;
+
+    /**
+     * 用户id 根据user_type关联 member_user表 或 system_user表
+     */
+    private Long userId;
 }

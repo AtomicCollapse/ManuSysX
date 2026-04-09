@@ -1,6 +1,6 @@
 spring:
   application:
-    name: erp-server
+    name: im-server
 
   profiles:
     active: local

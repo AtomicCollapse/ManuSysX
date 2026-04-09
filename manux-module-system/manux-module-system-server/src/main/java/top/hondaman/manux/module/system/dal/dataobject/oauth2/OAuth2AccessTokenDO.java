@@ -72,4 +72,13 @@ public class OAuth2AccessTokenDO extends TenantBaseDO {
      */
     private LocalDateTime expiresTime;
 
+    /**
+     * im 用户id
+     */
+    private Long imUserId;
+
+    /**
+     * 终端类型
+     */
+    private Integer terminal;
 }

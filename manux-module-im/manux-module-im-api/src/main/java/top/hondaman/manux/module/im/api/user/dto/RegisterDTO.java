@@ -2,6 +2,7 @@ package top.hondaman.manux.module.im.api.user.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -23,5 +24,11 @@ public class RegisterDTO {
     @Schema(description = "用户昵称")
     private String nickName;
 
+    @Schema(description = "用户类型")
+    @NotNull(message = "用户类型不能为空")
+    private Integer userType;
 
+    @Schema(description = "用户id")
+    @NotNull(message = "用户id不能为空")
+    private Long userId;
 }

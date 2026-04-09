@@ -25,4 +25,9 @@ public class OAuth2AccessTokenRespDTO implements Serializable {
     @Schema(description = "过期时间", requiredMode = Schema.RequiredMode.REQUIRED)
     private LocalDateTime expiresTime;
 
+    @Schema(description = "im用户id")
+    private Long imUserId;
+
+    @Schema(description = "登录终端类型")
+    private Integer terminal;
 }
