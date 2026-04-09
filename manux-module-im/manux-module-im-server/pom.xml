@@ -61,6 +61,29 @@
             <artifactId>manux-spring-boot-starter-protection</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>top.hondaman.manux</groupId>
+            <artifactId>manux-spring-boot-starter-excel</artifactId>
+        </dependency>
+
+        <!-- RPC 远程调用相关 -->
+        <dependency>
+            <groupId>top.hondaman.manux</groupId>
+            <artifactId>manux-spring-boot-starter-rpc</artifactId>
+        </dependency>
+
+        <!-- Registry 注册中心相关 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- Config 配置中心相关 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
         <!--thumbnailator图片处理-->
         <dependency>
             <groupId>net.coobird</groupId>

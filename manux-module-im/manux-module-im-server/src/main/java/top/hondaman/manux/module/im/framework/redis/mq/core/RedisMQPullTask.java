@@ -4,18 +4,18 @@ import com.alibaba.fastjson.JSONObject;
 import jakarta.annotation.PreDestroy;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisConnectionUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import top.hondaman.manux.module.im.util.ThreadPoolExecutorFactory;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedisMQPullTask implements CommandLineRunner {
 
+    private String version = Strings.EMPTY;
     private static final ScheduledThreadPoolExecutor EXECUTOR = ThreadPoolExecutorFactory.getThreadPoolExecutor();
 
     @Autowired(required = false)
@@ -89,20 +90,20 @@ public class RedisMQPullTask implements CommandLineRunner {
 
     private List<Object> pullBatch(String key, Integer batchSize) {
         List<Object> objects = new LinkedList<>();
-//        if (redisTemplate.isSupportBatchPull()) {
+        if (isSupportBatchPull()) {
             // 版本大于6.2，支持批量拉取
             objects = redisTemplate.opsForList().leftPop(key, batchSize);
-//        } else {
-//            // 版本小于6.2，只能逐条拉取
-//            Object obj = redisTemplate.opsForList().leftPop(key);
-//            while (!Objects.isNull(obj) && objects.size() < batchSize) {
-//                objects.add(obj);
-//                obj = redisTemplate.opsForList().leftPop(key);
-//            }
-//            if (!Objects.isNull(obj)){
-//                objects.add(obj);
-//            }
-//        }
+        } else {
+            // 版本小于6.2，只能逐条拉取
+            Object obj = redisTemplate.opsForList().leftPop(key);
+            while (!Objects.isNull(obj) && objects.size() < batchSize) {
+                objects.add(obj);
+                obj = redisTemplate.opsForList().leftPop(key);
+            }
+            if (!Objects.isNull(obj)){
+                objects.add(obj);
+            }
+        }
         return objects;
     }
 
@@ -110,5 +111,35 @@ public class RedisMQPullTask implements CommandLineRunner {
     public void destory() {
         log.info("消费线程停止...");
         ThreadPoolExecutorFactory.shutDown();
+    }
+
+    private String getVersion() {
+        if (version.isEmpty()) {
+            RedisConnection connection = RedisConnectionUtils.getConnection(redisTemplate.getConnectionFactory());
+            Properties properties = connection.info();
+            for (String key : properties.stringPropertyNames()) {
+                if (key.contains("redis_version")) {
+                    version = properties.getProperty(key);
+                    break;
+                }
+            }
+            RedisConnectionUtils.releaseConnection(connection,redisTemplate.getConnectionFactory());
+        }
+        return version;
+    }
+
+    /**
+     * 是否支持批量拉取，redis版本大于6.2支持批量拉取
+     * @return
+     */
+    private Boolean isSupportBatchPull() {
+        String version = getVersion();
+        String[] arr = version.split("\\.");
+        if (arr.length < 2) {
+            return false;
+        }
+        Integer firVersion = Integer.valueOf(arr[0]);
+        Integer secVersion = Integer.valueOf(arr[1]);
+        return firVersion > 6 || (firVersion == 6 && secVersion >= 2);
     }
 }
